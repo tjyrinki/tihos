@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+_Name=Tihos
+_Comment=Home screen application for Neo FreeRunner mobile phone
+Icon=tihos
+Exec=tihos
+Terminal=false
+Type=Application
+Categories=GTK;Utility;
+

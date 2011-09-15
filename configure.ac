@@ -1,0 +1,29 @@
+AC_INIT(tihos, 0.01)
+AC_CONFIG_SRCDIR(src/tihos.c)
+AC_PREREQ(2.57)
+AM_INIT_AUTOMAKE
+AC_CONFIG_HEADERS(config.h)
+
+AC_PROG_CC
+AC_STDC_HEADERS
+AC_PROG_INSTALL
+
+PKG_CHECK_MODULES(DEPS, gtk+-2.0 >= 2.20 glib-2.0 >= 2.20 xtst libomhacks)
+
+GETTEXT_PACKAGE=tihos
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package.])
+AC_PROG_INTLTOOL([0.23])
+
+dnl Add the languages which your application supports here.
+ALL_LINGUAS="fi"
+
+AM_GLIB_GNU_GETTEXT
+
+AC_SUBST(DEPS_CFLAGS)
+AC_SUBST(DEPS_LIBS)
+
+AC_CONFIG_FILES([Makefile src/Makefile data/Makefile])
+AC_CONFIG_COMMANDS([default],[[ echo timestamp > stamp-h ]],[[]])
+AC_OUTPUT([po/Makefile.in])
+

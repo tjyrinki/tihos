@@ -1,0 +1,14 @@
+#!/bin/bash
+if [[ $# < 1 ]] ; then
+        echo "$0 <start|stop>"
+        exit
+fi
+
+if [[ $1 == "start" ]] ; then
+#        dbus-send --system --dest=org.freesmartphone.odeviced --type=method_call --print-reply /org/freesmartphone/Device/PowerControl/WiFi org.freesmartphone.Device.PowerControl.SetPower int32:1
+	/etc/init.d/wicd start
+else
+#        dbus-send --system --dest=org.freesmartphone.odeviced --type=method_call --print-reply /org/freesmartphone/Device/PowerControl/WiFi org.freesmartphone.Device.PowerControl.SetPower int32:0
+	/etc/init.d/wicd stop
+fi
+

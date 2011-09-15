@@ -1,0 +1,17 @@
+# (Enable GPRS first)
+
+# hcitool cc 00:1E:37:FA:D9:8E
+# hcitool auth 00:1E:37:FA:D9:8E
+# echo 1 > /sys/bus/platform/devices/neo1973-pm-bt.0/power_on 
+# echo 0 > /sys/bus/platform/devices/neo1973-pm-bt.0/reset 
+# sleep 3
+# done in /etc/rc.local: # modprobe bnep 
+# pand --listen --role NAP --master --autozap 
+
+# hciconfig hci0 up
+# hciconfig hci0 piscan
+# echo 1234 | /usr/share/doc/bluez/examples/simple-agent hci0 00:02:72:16:51:EF
+ifconfig bnep0 10.0.5.1 up 
+echo 1 > /proc/sys/net/ipv4/ip_forward 
+iptables -t nat -A POSTROUTING -j MASQUERADE -o ppp0 
+

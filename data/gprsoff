@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# miekka ja kivi
+killall pppd
+
+#!/bin/sh
+BUSNAME="org.freesmartphone.ogsmd"
+OBJECTPATH="/org/freesmartphone/GSM/Device"
+METHODNAME="org.freesmartphone.GSM.PDP.DeactivateContext"
+#/root/mdbus -s $BUSNAME $OBJECTPATH $METHODNAME
+

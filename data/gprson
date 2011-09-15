@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# miekka ja kivi
+#identvar=$(date +%s)
+#ptsvar=$(dbus-send --system --print-reply --type=method_call --dest=org.pyneo.muxer /org/pyneo/Muxer org.freesmartphone.GSM.MUX.AllocChannel string:$identvar | grep string | awk -F '"' '{ print $2 }')
+
+#sleep 2
+
+#echo $identvar $ptsvar
+#pppd $ptsvar 115200 call gprs
+
+APN="internet"
+USERNAME="user"
+PASSWORD="user"
+BUSNAME="org.freesmartphone.ogsmd"
+OBJECTPATH="/org/freesmartphone/GSM/Device"
+METHODNAME="org.freesmartphone.GSM.PDP.ActivateContext"
+# /root/mdbus -s $BUSNAME $OBJECTPATH $METHODNAME internet user user
+
+## for fso-abyss
+dbus-send --print-reply --system --dest=$BUSNAME $OBJECTPATH $METHODNAME string:internet string:user string:user
+
+sleep 30
+
+# Enable Bluetooth net forwarding
+sh /usr/lib/tihos/btnetfw
+
+# Restrict GPRS access speed
+# tc qdisc add dev ppp0 root tbf rate 2kbit latency 50ms burst 1600
+# tc qdisc add dev ppp0 root tbf rate 7kbit latency 4500ms burst 3200
+tc qdisc add dev ppp0 root tbf rate 5kbit latency 4500ms burst 3200
+

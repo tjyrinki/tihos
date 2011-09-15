@@ -1,0 +1,25 @@
+#!/bin/sh
+
+#om touchscreen lock &
+#killall neolockscreen
+#neolockscreen --lock &
+
+# When updating FSO stuff, I sometimes encountered power button not 
+# being handled anymore, and did also the actual suspend in this script.
+# 
+# Various methods:
+# 
+# High level ("correct"):
+dbus-send --type=method_call --system --dest=org.freesmartphone.ousaged /org/freesmartphone/Usage org.freesmartphone.Usage.Suspend
+# Low level just GSM ("wrong"):
+# dbus-send --type=method_call --system --dest=org.freesmartphone.ogsmd /org/freesmartphone/GSM/Device org.freesmartphone.Resource.Suspend
+# Non-FSO:
+# echo mem > /sys/power/state
+
+sync
+sleep 2
+
+# killall om
+
+dbus-send --type=method_call --system --dest=org.freesmartphone.ogsmd /org/freesmartphone/GSM/Device org.freesmartphone.Resource.Resume
+

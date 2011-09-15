@@ -1,0 +1,13 @@
+#! /bin/sh
+
+# old
+# echo 500 > /sys/devices/platform/s3c2440-i2c/i2c-adapter/i2c-0/0-0073/force_usb_limit_dangerous
+
+# new
+# echo 500 > /sys/devices/platform/s3c2440-i2c/i2c-adapter:i2c-0/0-0073/force_usb_limit_dangerous
+
+# even newer
+# echo 500 >  /sys/class/i2c-adapter/i2c-0/0-0073/pcf50633-mbc/force_usb_limit_dangerous
+
+# ridiculously new
+echo 500 > /sys/class/i2c-adapter/i2c-0/0-0073/pcf50633-mbc/usb_curlim

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# ifdown usb0
+
+pon 3g
+
+# ifup usb0
+

@@ -1,0 +1,23 @@
+### Rotate
+
+if [ $(xrandr | grep 480x640 | wc -l ) -gt 1 ] ; then
+  xrandr -o right
+else
+  xrandr -o normal
+fi
+
+exit 
+
+### Brightness
+
+cur=`cat /sys/class/backlight/gta02-bl/brightness`
+
+if [ $cur -le 128 ] ; then
+  echo 255 > /sys/class/backlight/gta02-bl/brightness
+else
+  echo 16 > /sys/class/backlight/gta02-bl/brightness
+fi
+
+#echo 10 > /sys/class/backlight/gta02-bl/brightness
+# echo 0 > /sys/class/backlight/gta02-bl/brightness
+

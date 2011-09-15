@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ $(pgrep -c trayer) -gt 0 ]; then
+  killall trayer
+  killall bluetooth-applet
+else
+  trayer --align center --heighttype pixel --height 48 --expand true --widthtype percent --width 100 --padding 200 &
+  bluetooth-applet &
+fi
+

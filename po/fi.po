@@ -1,0 +1,245 @@
+# Tihos Finnish translation.
+# Copyright (C) 2010 Timo Jyrinki
+# This file is distributed under the same license as the tihos package.
+# Timo Jyrinki <timo.jyrinki@iki.fi>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: trunk\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-08-01 00:52+0300\n"
+"PO-Revision-Date: 2010-07-30 13:48+0300\n"
+"Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
+"Language-Team: Finnish <gnome-fi-laatu@lists.sourceforg.net>\n"
+"Language: Finnish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../src/tihos.c:199
+msgid ""
+"\n"
+"  Force USB  \n"
+msgstr ""
+"\n"
+"  Pakota USB  \n"
+
+#: ../src/tihos.c:201
+msgid ""
+"\n"
+"  Profile: music  \n"
+msgstr ""
+"\n"
+"  Profiili: musiikki  \n"
+
+#: ../src/tihos.c:203
+msgid ""
+"\n"
+"  Profile: phone  \n"
+msgstr ""
+"\n"
+"  Profiili: puhelin  \n"
+
+#: ../src/tihos.c:205
+msgid ""
+"\n"
+"  USB host mode  \n"
+msgstr ""
+"\n"
+"  USB-isäntätila  \n"
+
+#: ../src/tihos.c:207
+msgid ""
+"\n"
+"  Rotate  \n"
+msgstr ""
+"\n"
+"  Kierrä  \n"
+
+#: ../src/tihos.c:209
+msgid ""
+"\n"
+"  Restart  \n"
+msgstr ""
+"\n"
+"  Käynn. uud.  \n"
+
+#: ../src/tihos.c:211
+msgid ""
+"\n"
+"  BT net fw  \n"
+msgstr ""
+"\n"
+"  BT-verkkofwd  \n"
+
+#: ../src/tihos.c:213
+msgid ""
+"\n"
+" GPRS off \n"
+msgstr ""
+"\n"
+" GPRS pois \n"
+
+#: ../src/tihos.c:215
+msgid ""
+"\n"
+" GPRS on \n"
+msgstr ""
+"\n"
+" GPRS päälle \n"
+
+#: ../src/tihos.c:217
+msgid ""
+"\n"
+" GPS off \n"
+msgstr ""
+"\n"
+" GPS pois \n"
+
+#: ../src/tihos.c:219
+msgid ""
+"\n"
+" GPS on \n"
+msgstr ""
+"\n"
+" GPS päälle \n"
+
+#: ../src/tihos.c:221
+msgid ""
+"\n"
+" Bluetooth off \n"
+msgstr ""
+"\n"
+" Bluetooth pois \n"
+
+#: ../src/tihos.c:223
+msgid ""
+"\n"
+" Bluetooth on \n"
+msgstr ""
+"\n"
+" Bluetooth päälle \n"
+
+#: ../src/tihos.c:225
+msgid ""
+"\n"
+" WLAN off \n"
+msgstr ""
+"\n"
+" WLAN pois \n"
+
+#: ../src/tihos.c:227
+msgid ""
+"\n"
+" WLAN on \n"
+msgstr ""
+"\n"
+" WLAN päälle \n"
+
+#: ../src/tihos.c:229
+msgid ""
+"\n"
+" 3G On \n"
+msgstr ""
+"\n"
+" 3G päälle \n"
+
+#: ../src/tihos.c:231
+msgid ""
+"\n"
+" POWER OFF \n"
+msgstr ""
+"\n"
+" VIRTA POIS \n"
+
+#: ../src/tihos.c:233
+msgid ""
+"\n"
+" Toggle tray \n"
+msgstr ""
+"\n"
+" Ilmoitusalue \n"
+
+#: ../src/tihos.c:306
+#, c-format
+msgid "Bat: %d%% +"
+msgstr "Akku: %d%% +"
+
+#: ../src/tihos.c:309
+#, c-format
+msgid "Bat: %d%%"
+msgstr "Akku: %d%%"
+
+#: ../src/tihos.c:463
+msgid ""
+"\n"
+"\n"
+"\n"
+"Lock screen\n"
+"\n"
+"\n"
+msgstr ""
+"\n"
+"\n"
+"\n"
+"Lukitse näyttö\n"
+"\n"
+"\n"
+
+#: ../src/tihos.c:470
+msgid ""
+"\n"
+"Keyboard\n"
+msgstr ""
+"\n"
+"Näppäimistö\n"
+
+#: ../src/tihos.c:474
+msgid ""
+"\n"
+"Applications\n"
+msgstr ""
+"\n"
+"Sovellukset\n"
+
+#: ../src/tihos.c:481
+msgid ""
+"\n"
+"Close App\n"
+"(tap twice)\n"
+msgstr ""
+"\n"
+"Sulje sov\n"
+"(2 x)\n"
+
+#: ../src/tihos.c:485
+msgid ""
+"\n"
+"\n"
+"\n"
+"More...\n"
+"\n"
+"\n"
+msgstr ""
+"\n"
+"\n"
+"\n"
+"Lisää...\n"
+"\n"
+"\n"
+
+#: ../src/tihos.c:490
+msgid "<span size=\"36000\" background=\"black\"><b>☻</b></span>"
+msgstr "<span size=\"36000\" background=\"black\"><b>☻</b></span>"
+
+#: ../src/tihos.c:492
+msgid "Bat: ? %"
+msgstr "Akku: ? %"
+
+#: ../data/tihos.desktop.in.h:1
+msgid "Home screen application for Neo FreeRunner mobile phone"
+msgstr "Kotinäyttösovellus Neo FreeRunner -matkapuhelimelle"
+
+#: ../data/tihos.desktop.in.h:2
+msgid "Tihos"
+msgstr "Tihos"

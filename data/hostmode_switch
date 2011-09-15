@@ -1,0 +1,17 @@
+#!/bin/sh
+# grep -q 'host' /sys/devices/platform/s3c2410-ohci/usb_mode
+grep -q 'host' /sys/devices/platform/s3c-ohci/usb_mode
+if [ $? -eq 0 ]
+then
+echo 0 > /sys/class/i2c-adapter/i2c-0/0-0073/neo1973-pm-host.0/hostmode 
+echo device > /sys/devices/platform/s3c-ohci/usb_mode
+ifconfig usb0 up
+echo USB-Port is in device-mode now.
+else
+ifconfig usb0 down
+echo host > /sys/devices/platform/s3c-ohci/usb_mode
+echo 1 > /sys/class/i2c-adapter/i2c-0/0-0073/neo1973-pm-host.0/hostmode
+lsusb
+echo USB-Port is in host-mode now.
+fi
+ 

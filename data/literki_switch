@@ -1,0 +1,8 @@
+#!/bin/bash
+
+## if [ "`ps -A | grep literki`" = "" ]; then literki; else killall literki; fi
+
+killall literki
+sleep 1
+literki
+

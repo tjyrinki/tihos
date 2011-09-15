@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ $(pgrep screenkeepon | wc -l) -gt 0 ] ; then
+  pkill -f screenkeepon
+else
+  /usr/lib/tihos/screenkeepon &
+fi
+

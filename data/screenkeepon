@@ -1,0 +1,8 @@
+#!/bin/sh
+
+while [ 1 ] ; do
+  om screen power 1
+  om backlight 63
+  sleep 5
+done
+
