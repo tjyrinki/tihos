@@ -194,7 +194,7 @@ void handleX() {
                     if (event.xkey.keycode == XKeysymToKeycode(GDK_DISPLAY(), XStringToKeysym(POWERKEY_NAME))) {
                         if (screen_locked == FALSE) {
                             lockScreen(lockbutton, NULL);
-                            launchCommand(g_strjoin(NULL, PACKAGE_SCRIPTS_DIR, "/manualsuspend", NULL));
+                            launchCommand(PACKAGE_SCRIPTS_DIR "/manualsuspend");
                         }
                     }
                 }
@@ -289,7 +289,7 @@ void Xclimsg(Window win, long type, long l0, long l1, long l2, long l3, long l4)
 
 /* Callbacks from buttons */
 static void helperForceUSB(GtkWidget *widget, gpointer data) {
-    launchCommand(g_strjoin(NULL, PACKAGE_SCRIPTS_DIR, "/forceusbpower", NULL));
+    launchCommand(PACKAGE_SCRIPTS_DIR "/forceusbpower");
 }
 static void helperProfileMusic(GtkWidget *widget, gpointer data) {
     launchCommand("alsactl -f /usr/share/openmoko/scenarios/headset.state restore");
@@ -298,22 +298,22 @@ static void helperProfilePhone(GtkWidget *widget, gpointer data) {
     launchCommand("alsactl -f /usr/share/openmoko/scenarios/gsmhandset.state restore");
 }
 static void helperUSBHostMode(GtkWidget *widget, gpointer data) {
-    launchCommand(g_strjoin(NULL, PACKAGE_SCRIPTS_DIR, "/hostmode_switch", NULL));
+    launchCommand(PACKAGE_SCRIPTS_DIR "/hostmode_switch");
 }
 static void helperRotate(GtkWidget *widget, gpointer data) {
-    launchCommand(g_strjoin(NULL, PACKAGE_SCRIPTS_DIR, "/rotate", NULL));
+    launchCommand(PACKAGE_SCRIPTS_DIR "/rotate");
 }
 static void helperScreenon(GtkWidget *widget, gpointer data) {
-    launchCommand(g_strjoin(NULL, PACKAGE_SCRIPTS_DIR, "/screenonswitch", NULL));
+    launchCommand(PACKAGE_SCRIPTS_DIR "/screenonswitch");
 }
 static void helperBtNetFw(GtkWidget *widget, gpointer data) {
-    launchCommand(g_strjoin(NULL, PACKAGE_SCRIPTS_DIR, "/btnetfw", NULL));
+    launchCommand(PACKAGE_SCRIPTS_DIR "/btnetfw");
 }
 static void helperGprsOff(GtkWidget *widget, gpointer data) {
-    launchCommand(g_strjoin(NULL, PACKAGE_SCRIPTS_DIR, "/gprsoff", NULL));
+    launchCommand(PACKAGE_SCRIPTS_DIR "/gprsoff");
 }
 static void helperGprsOn(GtkWidget *widget, gpointer data) {
-    launchCommand(g_strjoin(NULL, PACKAGE_SCRIPTS_DIR, "/gprson", NULL));
+    launchCommand(PACKAGE_SCRIPTS_DIR "/gprson");
 }
 static void helperGpsOff(GtkWidget *widget, gpointer data) {
     launchCommand("/etc/init.d/gpsd stop");
@@ -339,27 +339,27 @@ static void helperBluetoothOn(GtkWidget *widget, gpointer data) {
 }
 static void helperWlanOff(GtkWidget *widget, gpointer data) {
     om_wifi_power_set(0);
-    launchCommand(g_strjoin(NULL, PACKAGE_SCRIPTS_DIR, "/wlan stop", NULL));
+    launchCommand(PACKAGE_SCRIPTS_DIR "/wlan stop");
     sleep(1);
     launchCommand("iwconfig eth1 txpower off");
 }
 static void helperWlanOn(GtkWidget *widget, gpointer data) {
     om_wifi_power_set(1);
-    launchCommand(g_strjoin(NULL, PACKAGE_SCRIPTS_DIR, "/wlan start", NULL));
+    launchCommand(PACKAGE_SCRIPTS_DIR "/wlan start");
     sleep(1);
     launchCommand("iwconfig eth1 txpower auto");
 }
 static void helper3GOn(GtkWidget *widget, gpointer data) {
-    launchCommand(g_strjoin(NULL, PACKAGE_SCRIPTS_DIR, "/3g", NULL));
+    launchCommand(PACKAGE_SCRIPTS_DIR "/3g");
 }
 static void helperPowerOff(GtkWidget *widget, gpointer data) {
     launchCommand("poweroff");
 }
 void toggleTray(GtkWidget *widget, gpointer data) {
-    launchCommand(g_strjoin(NULL, PACKAGE_SCRIPTS_DIR, "/toggle_tray", NULL));
+    launchCommand(PACKAGE_SCRIPTS_DIR "/toggle_tray");
 }
 void keyboardButton(GtkWidget *widget, gpointer data) {
-    launchCommand(g_strjoin(NULL, PACKAGE_SCRIPTS_DIR, "/literki_switch", NULL));
+    launchCommand(PACKAGE_SCRIPTS_DIR "/literki_switch");
     /* Hide when selected */
     unLockScreen();
     gtk_widget_hide_all(main_window);
