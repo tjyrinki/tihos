@@ -79,17 +79,22 @@ void unLockScreen() {
 
 /* Read battery level */
 void updateBattery() {
-    gint charge;
+    gint charge = 0;
     gchar charging;
     gchar batteryText[1024];
     FILE *file;
+
     file=fopen("/sys/class/power_supply/battery/capacity", "r");
-    fscanf(file, "%d", &charge);
-    fclose(file);
+    if (file) {
+        fscanf(file, "%d", &charge);
+        fclose(file);
+    }
     file=fopen("/sys/class/power_supply/battery/status", "r");
-    fscanf(file, "%c", &charging);
-    fclose(file);
-    if(charging == 'C') charge+=200;
+    if (file) {
+        fscanf(file, "%c", &charging);
+        fclose(file);
+        if(charging == 'C') charge+=200;
+    }
     if (charge > 100) {
         charge-=200;
         sprintf(batteryText, _("Bat: %d%% +"), charge);
