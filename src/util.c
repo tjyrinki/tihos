@@ -490,7 +490,43 @@ void switchButtons(GtkWidget *widget, gpointer data) {
     }
 }
 
+GtkWidget *create_apps_menu_from_file(const char *filename)
+{
+    GtkWidget *apps_menu = gtk_menu_new(), *menu, *menuitem;
+    FILE *file;
+    char buf[1024];
+    char command[128][255];
+    gint command_nr = 0;
+    file=fopen(filename, "r");
+    if (!file) {
+        return NULL;
+    }
+    menu = apps_menu;
+    do {
+        fgets(buf, sizeof(buf), file);
+        if (strstr(buf, "MENU") != NULL) {
+            menuitem = gtk_menu_item_new_with_label(buf+4);
+            menu = gtk_menu_new();
+            gtk_menu_item_set_submenu(GTK_MENU_ITEM(menuitem), menu);
+            gtk_widget_show(menu);
+            gtk_menu_shell_append(GTK_MENU_SHELL(apps_menu), menuitem);
+            gtk_widget_show(menuitem);
+        }
+        if (strstr(buf, "ITEM") != NULL) {
+            menuitem = gtk_menu_item_new_with_label(buf+4);
+            gtk_menu_append(GTK_MENU(menu), menuitem);
+            fgets(command[command_nr], sizeof(command[command_nr]), file);
+            gtk_signal_connect(GTK_OBJECT(menuitem), "activate", GTK_SIGNAL_FUNC(menuLaunchCommand), command[command_nr]);
+            gtk_widget_show(menuitem);
+        }
+        command_nr++;
+    } while (!feof(file) && command_nr < 128);
+    fclose(file);
+    return apps_menu;
+}
+
 void createUI() {
+    GtkWidget *apps_menu;
     GdkColor myblack;
     myblack.red = 0x0000;
     myblack.green = 0x0000;
@@ -563,34 +599,10 @@ void createUI() {
 
     /* Apps */
 //    GtkWidget *apps = gtk_notebook_new();
-    GtkWidget *apps_menu = gtk_menu_new(), *menu, *menuitem;
-    FILE *file;
-    char buf[1024];
-    char command[128][255];
-    gint command_nr = 0;
-    file=fopen("/tmp/menu.lst", "r");
-    menu = apps_menu;
-    do {
-        fgets(buf, sizeof(buf), file);
-        if (strstr(buf, "MENU") != NULL) {
-            menuitem = gtk_menu_item_new_with_label(buf+4);
-            menu = gtk_menu_new();
-            gtk_menu_item_set_submenu(GTK_MENU_ITEM(menuitem), menu);
-            gtk_widget_show(menu);
-            gtk_menu_shell_append(GTK_MENU_SHELL(apps_menu), menuitem);
-            gtk_widget_show(menuitem);
-        }
-        if (strstr(buf, "ITEM") != NULL) {
-            menuitem = gtk_menu_item_new_with_label(buf+4);
-            gtk_menu_append(GTK_MENU(menu), menuitem);
-            fgets(command[command_nr], sizeof(command[command_nr]), file);
-            gtk_signal_connect(GTK_OBJECT(menuitem), "activate", GTK_SIGNAL_FUNC(menuLaunchCommand), command[command_nr]);
-            gtk_widget_show(menuitem);
-        }
-        command_nr++;
-    } while (!feof(file) && command_nr < 128);
-    fclose(file);
-    gtk_widget_show(apps_menu);
+    apps_menu = create_apps_menu_from_file("/tmp/menu.lst");
+    if (apps_menu) {
+        gtk_widget_show(apps_menu);
+    }
 
     x_fd=XConnectionNumber(GDK_DISPLAY());
 
