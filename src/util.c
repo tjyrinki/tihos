@@ -142,6 +142,7 @@ void refreshWindowList() {
         gtk_table_attach(GTK_TABLE(table), button[i], x, x+1, y, y+1, GTK_FILL, GTK_FILL, 0, 0);
         gtk_widget_show(button[i]);
         g_signal_connect(G_OBJECT(button[i]), "clicked", G_CALLBACK(switchWindow), NULL);
+        g_free(name);
         x++;
         if (x>2) { x=0; y++; }
     }
