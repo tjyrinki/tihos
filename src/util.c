@@ -607,6 +607,8 @@ void createUI() {
     apps_menu = create_apps_menu_from_file("/tmp/menu.lst");
     if (apps_menu) {
         gtk_widget_show(apps_menu);
+    } else {
+        gtk_widget_set_sensitive(appsbutton, False);
     }
 
     x_fd=XConnectionNumber(GDK_DISPLAY());
