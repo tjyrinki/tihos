@@ -10,3 +10,4 @@ helper_SCRIPTS = 3g btnetfw forceusbpower gprsoff gprson hostmode_switch literki
 EXTRA_DIST= $(helper_SCRIPTS) \
             $(desktop_in_files)
 
+CLEANFILES = $(desktop_DATA)

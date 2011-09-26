@@ -24,6 +24,5 @@ AC_SUBST(DEPS_CFLAGS)
 AC_SUBST(DEPS_LIBS)
 
 AC_CONFIG_FILES([Makefile src/Makefile data/Makefile])
-AC_CONFIG_COMMANDS([default],[[ echo timestamp > stamp-h ]],[[]])
 AC_OUTPUT([po/Makefile.in])
 

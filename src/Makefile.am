@@ -1,6 +1,6 @@
 bin_PROGRAMS = tihos
 
-tihos_SOURCES = util.c tihos.c
+tihos_SOURCES = util.h util.c tihos.h tihos.c
 tihos_LDADD = $(DEPS_LIBS)
 
 AM_CPPFLAGS = $(DEPS_CFLAGS) \
